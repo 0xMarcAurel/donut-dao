@@ -292,11 +292,54 @@ a {
   height: 90px;
 }
 
+.sec-8 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem;
+  border-bottom: 1px solid #1b1a55;
+}
+
+.stats-container {
+  user-select: none;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  gap: 6rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+    0 0 10px rgba(255, 255, 255, 0.3), 0 0 15px rgba(255, 255, 255, 0.2),
+    inset 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+.stat-item h3 {
+  font-weight: 500;
+  font-size: clamp(1rem, 10vw, 1.3rem);
+  border-bottom: 1px solid #67a2ea;
+  padding-bottom: 0.5rem;
+  margin: 0 0 0.5rem 0;
+  color: #67a2ea;
+}
+
+.stat-item p {
+  font-size: clamp(1rem, 10vw, 1.2rem);
+  font-weight: 400;
+  margin: 0;
+}
+
 /* register UI */
 .register-container {
   background-color: black;
   color: white;
   border: 1px solid white;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+    0 0 10px rgba(255, 255, 255, 0.3), 0 0 15px rgba(255, 255, 255, 0.2),
+    inset 0 0 5px rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   height: max-content;
   max-width: max-content;
@@ -724,6 +767,7 @@ textarea:focus {
   white-space: normal;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1017,7 +1061,8 @@ textarea:focus {
   .sec-4,
   .sec-5,
   .sec-6,
-  .sec-7 {
+  .sec-7,
+  .sec-8 {
     padding-bottom: 4rem;
   }
 
