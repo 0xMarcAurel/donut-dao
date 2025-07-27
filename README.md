@@ -27,7 +27,6 @@ cd donut-dao
 
 Open `index.html` directly in your browser, or use Live Server in VS Code
 
-
 ---
 
 ## Contribution guidelines
@@ -36,9 +35,9 @@ This project is maintained by members of the Donut DAO.
 
 If you're a contributor:
 
-* Use feature branches
-* Submit pull requests for review
-* Keep code modular and well-commented
+- Use feature branches
+- Submit pull requests for review
+- Keep code modular and well-commented
 
 If you're not part of the org but want to help, feel free to fork or open an issue.
 
@@ -46,19 +45,18 @@ If you're not part of the org but want to help, feel free to fork or open an iss
 
 ## License
 
-This project is currently unlicensed, meaning reuse or redistribution is not officially permitted.
+This project is licensed under the [MIT License](LICENSE).
 
-If you'd like to reuse code from this repo, please open an issue or contact the maintainers.
+You are free to use, copy, modify, and distribute this code for personal or commercial purposes, as long as you include the original license and copyright.
 
 ---
 
 ## Related links
 
-* [r/EthTrader](https://www.reddit.com/r/ethtrader/)
-* [CoinGecko](https://www.coingecko.com/coins/donut)
-* [Snapshot](https://snapshot.box/#/ethtraderdao.eth)
-* [Discord](https://discord.com/invite/GCqpyAnmDa)
-* [X](https://x.com/TheDonutDAO)
+- [r/EthTrader](https://www.reddit.com/r/ethtrader/)
+- [CoinGecko](https://www.coingecko.com/coins/donut)
+- [Snapshot](https://snapshot.box/#/ethtraderdao.eth)
+- [Discord](https://discord.com/invite/GCqpyAnmDa)
+- [X](https://x.com/TheDonutDAO)
 
 ---
-
