@@ -202,3 +202,46 @@ if (registerForm) {
     registerButton.disabled = true;
   });
 }
+
+// fetch burned donuts from Arbitrum One
+
+async function fetchBurnedDonuts() {
+  try {
+    const burnedTokens = document.getElementById("burned");
+    const burnedMainnet = 111498; // Donuts burned on mainnet
+    const response = await fetch(
+      "https://api.etherscan.io/v2/api?chainid=42161&module=account&action=tokenbalance&contractaddress=0xF42e2B8bc2aF8B110b65be98dB1321B1ab8D44f5&address=0x000000000000000000000000000000000000dEaD&tag=latest&apikey=YQ21BRKWFTG1N7JNRQPHV1KQWDCQZCSQX5"
+    );
+
+    if (!response.ok) {
+      throw new Error("Could not fetch data");
+    }
+
+    const data = await response.json();
+
+    console.log(data);
+
+    if (data.status !== "1") {
+      throw new Error(data.result);
+    }
+
+    const rawBalance = BigInt(data.result);
+    const readableBalance = Number(rawBalance) / 1e18;
+
+    console.log(readableBalance + " Donuts burned");
+
+    const totalBurned = burnedMainnet + readableBalance;
+    const displayM = totalBurned / 1e6;
+
+    burnedTokens.textContent =
+      displayM.toLocaleString("en-US", {
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1,
+      }) + "M+";
+  } catch (error) {
+    console.error("Error fetching data:", error.message || error);
+    burnedTokens.textContent = "Error";
+  }
+}
+
+fetchBurnedDonuts();
