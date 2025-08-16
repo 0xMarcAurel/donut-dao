@@ -56,7 +56,7 @@ You are free to use, copy, modify, and distribute this code for personal or comm
 - [r/EthTrader](https://www.reddit.com/r/ethtrader/)
 - [CoinGecko](https://www.coingecko.com/coins/donut)
 - [Snapshot](https://snapshot.box/#/ethtraderdao.eth)
-- [Discord](https://discord.com/invite/GCqpyAnmDa)
+- [Discord](https://discord.gg/8dKCTJE7un)
 - [X](https://x.com/TheDonutDAO)
 
 ---
