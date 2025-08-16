@@ -1,0 +1,25 @@
+{
+  "name": "donut-dao",
+  "version": "1.0.0",
+  "description": "The Donut DAO is a decentralized organization created to support and scale the Donut ecosystem beyond the boundaries of Reddit. Built on the principles of community collaboration and governance, the Donut DAO rewards content creators and contributors who drive the project forward.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node backend/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xMarcAurel/donut-dao.git"
+  },
+  "keywords": [],
+  "author": "0xMarcAurel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0xMarcAurel/donut-dao/issues"
+  },
+  "homepage": "https://github.com/0xMarcAurel/donut-dao#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}

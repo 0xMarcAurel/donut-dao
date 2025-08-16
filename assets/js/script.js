@@ -195,11 +195,32 @@ if (registerForm) {
     }
 
     // if registration is successful
-    comment.style.color = "rgb(48, 192, 50)";
-    comment.textContent = `${username}, you have successfully registered on r/EthTrader!`;
-    registerForm.reset();
-    registerButton.textContent = "Success!";
-    registerButton.disabled = true;
+    try {
+      const response = await fetch("/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, wallet: address }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        comment.style.color = "rgb(255, 26, 14)";
+        comment.textContent = data.error;
+        return;
+      }
+
+      comment.style.color = "rgb(48, 192, 50)";
+      comment.textContent = `${username}, you have successfully registered on r/EthTrader!`;
+      registerForm.reset();
+      registerButton.textContent = "Success!";
+      registerButton.disabled = true;
+    } catch (error) {
+      comment.style.color = "rgb(255, 26, 14)";
+      comment.textContent = "Server error, please try again.";
+    }
   });
 }
 
@@ -228,7 +249,7 @@ async function fetchBurnedDonuts() {
     const rawBalance = BigInt(data.result);
     const readableBalance = Number(rawBalance) / 1e18;
 
-    console.log(readableBalance + " Donuts burned");
+    console.log(readableBalance + " Donuts burned on Arbitrum One.");
 
     const totalBurned = burnedMainnet + readableBalance;
     const displayM = totalBurned / 1e6;
