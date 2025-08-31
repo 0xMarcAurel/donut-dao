@@ -863,7 +863,7 @@ textarea:focus {
 }
 
 .prev-next-container {
-  justify-self: center;
+  justify-content: center;
   display: flex;
   flex-direction: row;
   gap: 1rem;
