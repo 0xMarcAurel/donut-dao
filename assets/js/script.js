@@ -196,13 +196,16 @@ if (registerForm) {
 
     // if registration is successful
     try {
-      const response = await fetch("/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, wallet: address }),
-      });
+      const response = await fetch(
+        "https://6eqmrhcm77.execute-api.us-east-2.amazonaws.com/submit",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, wallet: address }),
+        }
+      );
 
       const data = await response.json();
 
