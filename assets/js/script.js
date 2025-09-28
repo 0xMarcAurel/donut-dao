@@ -194,6 +194,56 @@ if (registerForm) {
       return;
     }
 
+    // check new-users.json for duplicate registrations
+    const jsonUrl =
+      "https://donut-dao-registration-submissions.s3.us-east-2.amazonaws.com/data/new-users.json";
+
+    let alreadyRegistered = false;
+
+    try {
+      const s3Response = await fetch(jsonUrl);
+
+      if (s3Response.ok) {
+        const s3RawData = await s3Response.json();
+        const existingUsers = Array.isArray(s3RawData)
+          ? s3RawData
+          : Object.values(s3RawData);
+        const lowerCaseUsernames = username.toLowerCase();
+        const lowerCaseAddresses = address.toLowerCase();
+
+        for (let entry of existingUsers) {
+          let existingUsername = entry.username;
+          let existingAddress = entry.wallet;
+
+          if (!existingUsername || !existingAddress) {
+            existingUsername = "";
+            existingAddress = "";
+          }
+
+          if (
+            existingUsername.toLowerCase() === lowerCaseUsernames ||
+            existingAddress.toLowerCase() === lowerCaseAddresses
+          ) {
+            alreadyRegistered = true;
+            break;
+          }
+        }
+      } else {
+        console.log("Error while checking S3 file:", s3Response.status);
+      }
+
+      if (alreadyRegistered) {
+        comment.style.color = "rgb(255, 26, 14)";
+        comment.textContent =
+          "This user or wallet has already been registered through this app.";
+        return;
+      }
+    } catch (error) {
+      console.error("Error while checking S3 file:", error);
+      comment.style.color = "rgb(255, 26, 14)";
+      comment.textContent = "Server error, please try again.";
+    }
+
     // if registration is successful
     try {
       const response = await fetch(
