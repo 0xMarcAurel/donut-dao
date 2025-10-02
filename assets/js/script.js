@@ -242,6 +242,7 @@ if (registerForm) {
       console.error("Error while checking S3 file:", error);
       comment.style.color = "rgb(255, 26, 14)";
       comment.textContent = "Server error, please try again.";
+      return;
     }
 
     // if registration is successful
