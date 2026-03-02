@@ -77,7 +77,7 @@ const observer = new IntersectionObserver(
   },
   {
     threshold: 0.1,
-  }
+  },
 );
 
 elements.forEach((element) => {
@@ -93,15 +93,15 @@ let registeredUsernames = [];
 async function registeredUsers() {
   try {
     const response = await fetch(
-      "https://raw.githubusercontent.com/EthTrader/donut.distribution/refs/heads/main/docs/users.json"
+      "https://raw.githubusercontent.com/EthTrader/donut.distribution/refs/heads/main/docs/users.json",
     );
     const users = await response.json();
 
     registeredWallets = Object.values(users).map((user) =>
-      user.address.toLowerCase()
+      user.address.toLowerCase(),
     );
     registeredUsernames = Object.values(users).map((user) =>
-      user.username.toLowerCase()
+      user.username.toLowerCase(),
     );
   } catch (error) {
     console.error("Failed to load user data:", error);
@@ -255,7 +255,7 @@ if (registerForm) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ username, wallet: address }),
-        }
+        },
       );
 
       const data = await response.json();
@@ -283,9 +283,9 @@ if (registerForm) {
 async function fetchBurnedDonuts() {
   try {
     const burnedTokens = document.getElementById("burned");
-    const burnedMainnet = 111498; // Donuts burned on mainnet
+    const burnedMainnet = 111499; // Donuts burned on mainnet
     const response = await fetch(
-      "https://api.etherscan.io/v2/api?chainid=42161&module=account&action=tokenbalance&contractaddress=0xF42e2B8bc2aF8B110b65be98dB1321B1ab8D44f5&address=0x000000000000000000000000000000000000dEaD&tag=latest&apikey=YQ21BRKWFTG1N7JNRQPHV1KQWDCQZCSQX5"
+      "https://api.etherscan.io/v2/api?chainid=42161&module=account&action=tokenbalance&contractaddress=0xF42e2B8bc2aF8B110b65be98dB1321B1ab8D44f5&address=0x000000000000000000000000000000000000dEaD&tag=latest&apikey=YQ21BRKWFTG1N7JNRQPHV1KQWDCQZCSQX5",
     );
 
     if (!response.ok) {
